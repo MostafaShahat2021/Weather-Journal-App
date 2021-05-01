@@ -19,11 +19,11 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 // Setup Server
-const port = 8000;
+const port = 3030;
 const Server = app.listen(port,()=>{
     console.log("Server Runing");
     console.log(`Runing on local host: ${port}`);
 })
-app.get("/", function(rec, res){
+app.get("/home", function(rec, res){
     res.send("Hello World");
 });
