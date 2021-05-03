@@ -10,7 +10,7 @@ let felingText= document.getElementById("feelings").value;
 const apiKey = "db946a07f453749c571d0f55fe825d5b";
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 // useing click event listener on the Generate Button
 btn.addEventListener('click', handlBtnClk);
 function handlBtnClk(){
