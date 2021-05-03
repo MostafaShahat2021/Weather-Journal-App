@@ -28,7 +28,7 @@ const getData = async () => {
     const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zipCode.value}&appid=${apiKey}&units=metric`)
     try{
         const data = await res.json()
-     console.log(data)
+     console.log(data.main.temp)
      return
     } catch (error) {
         console.log(error);
