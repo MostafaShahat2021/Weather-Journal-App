@@ -43,7 +43,7 @@ function handlBtnClk(){
         })
     }
 }
-//Function to get web API data
+//Function to get web API data using async -await promises
 const getData = async () => {
     // get API url
     const apiUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode.value}&appid=${apiKey}&units=metric`
@@ -57,3 +57,22 @@ const getData = async () => {
     }
 };
 
+// Function to post data using async - await promises
+
+const postData = async (url = "", data = {})=>{// using empty value as default parameters
+    // fetch route url & detremine request method,credentials,headers,body
+    const res = await fetch(url,{
+        method: "post",
+        credentials: "same-origin",
+        headers:{
+            "content-type": "application/json",
+        },
+        body:JSON.stringify(data), // convert JS object into a string
+    });
+    try{
+        return;
+    } catch (error){
+        console.log("Error",error);
+    }
+}
+// postData("/post", {})

@@ -24,6 +24,3 @@ const Server = app.listen(port,()=>{
     console.log("Server Runing");
     console.log(`Runing on local host: ${port}`);
 })
-app.get("/home", function(rec, res){
-    res.send("Hello World");
-});
