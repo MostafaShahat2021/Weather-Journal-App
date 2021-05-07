@@ -28,6 +28,6 @@ const Server = app.listen(port,()=>{
 app.post("/post", (req, res)=>{
     projectData.temp = req.body.temp;
     console.log(projectData.temp)
-    projectData.date = req.body.data;
+    projectData.date = req.body.date;
     console.log(projectData.date)
 })
