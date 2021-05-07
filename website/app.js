@@ -33,11 +33,13 @@ function handlBtnClk(){
         //start calling our 3 functions
 
         //calling getData
-        getData(apiUrl)
+        getData().then((data)=>{
+            postData("/post", {temp:data.main.temp})
+        })
 
         // get user fellings & date
-        .then((data)=>{
-            postData("/post", {temp:data.main.temp})
+        //.then(()=>{
+            // postData("/post", {temp:data.main.temp})
             //****FOR TEST ONLY****
             // const felingText= document.getElementById("feelings");
             // const getUserInput = felingText.value
@@ -47,7 +49,7 @@ function handlBtnClk(){
             // console.log(newDate);
             //****FOR TEST ONLY****
             
-        })
+        // })
     }
 }
 //Function to get web API data using async -await promises
@@ -59,7 +61,7 @@ const getData = async () => {
         const data = await req.json()
         // const temp = data.main.temp
      console.log(data.main.temp)
-     return
+     return data
     } catch (error) {
         console.log(error);
     }
