@@ -30,4 +30,6 @@ app.post("/post", (req, res)=>{
     console.log(projectData.temp)
     projectData.date = req.body.date;
     console.log(projectData.date)
+    projectData.feelings = req.body.feelings;
+    console.log(projectData.feelings)
 })

@@ -34,7 +34,7 @@ function handlBtnClk(){
 
         //calling getData
         getData().then((data)=>{
-            postData("/post", {temp:data.main.temp, date: newDate})
+            postData("/post", {temp:data.main.temp, date: newDate, feelings: felingText.value})
         })
 
         // get user fellings & date
