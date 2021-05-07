@@ -24,3 +24,7 @@ const Server = app.listen(port,()=>{
     console.log("Server Runing");
     console.log(`Runing on local host: ${port}`);
 })
+
+app.post("/post", (req, res)=>{
+    projectData.temp = req.body.temp;
+})

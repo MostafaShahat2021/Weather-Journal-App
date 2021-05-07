@@ -9,10 +9,14 @@ const zipCode = document.getElementById("zip");
 // Personal API Key for OpenWeatherMap API
 const apiKey = "db946a07f453749c571d0f55fe825d5b";
 
+// get API url
+const apiUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode.value}&appid=${apiKey}&units=metric`
+
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
+const felingText= document.getElementById("feelings");
 
 // useing click event listener on the Generate Button 
 btn.addEventListener('click', handlBtnClk);
@@ -33,13 +37,16 @@ function handlBtnClk(){
 
         // get user fellings & date
         .then(()=>{
+            
+            //****FOR TEST ONLY****
             const felingText= document.getElementById("feelings");
             const getUserInput = felingText.value
             let d = new Date();
             let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
             console.log(getUserInput);
             console.log(newDate);
-
+            //****FOR TEST ONLY****
+            
         })
     }
 }
@@ -47,10 +54,11 @@ function handlBtnClk(){
 const getData = async () => {
     // get API url
     const apiUrl = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode.value}&appid=${apiKey}&units=metric`
-    const res = await fetch(apiUrl)
+    const req = await fetch(apiUrl)
     try{
-        const data = await res.json()
-     console.log(data.main.temp)
+        const data = await req.json()
+        // const temp = data.main.temp
+     console.log(data)
      return
     } catch (error) {
         console.log(error);
@@ -62,8 +70,8 @@ const getData = async () => {
 const postData = async (url = "", data = {})=>{// using empty value as default parameters
     // fetch route url & detremine request method,credentials,headers,body
     const res = await fetch(url,{
-        method: "post",
-        credentials: "same-origin",
+        "method": "POST",
+        "credentials": "same-origin",
         headers:{
             "content-type": "application/json",
         },
@@ -75,4 +83,4 @@ const postData = async (url = "", data = {})=>{// using empty value as default p
         console.log("Error",error);
     }
 }
-// postData("/post", {})
+// postData("/post", {temp:data.main.temp})
