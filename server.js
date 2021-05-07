@@ -27,4 +27,5 @@ const Server = app.listen(port,()=>{
 
 app.post("/post", (req, res)=>{
     projectData.temp = req.body.temp;
+    console.log(projectData.temp)
 })

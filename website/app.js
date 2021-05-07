@@ -33,18 +33,18 @@ function handlBtnClk(){
         //start calling our 3 functions
 
         //calling getData
-        getData()
+        getData(apiUrl)
 
         // get user fellings & date
-        .then(()=>{
-            
+        .then((data)=>{
+            postData("/post", {temp:data.main.temp})
             //****FOR TEST ONLY****
-            const felingText= document.getElementById("feelings");
-            const getUserInput = felingText.value
-            let d = new Date();
-            let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
-            console.log(getUserInput);
-            console.log(newDate);
+            // const felingText= document.getElementById("feelings");
+            // const getUserInput = felingText.value
+            // let d = new Date();
+            // let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
+            // console.log(getUserInput);
+            // console.log(newDate);
             //****FOR TEST ONLY****
             
         })
@@ -58,7 +58,7 @@ const getData = async () => {
     try{
         const data = await req.json()
         // const temp = data.main.temp
-     console.log(data)
+     console.log(data.main.temp)
      return
     } catch (error) {
         console.log(error);
