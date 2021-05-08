@@ -33,3 +33,7 @@ app.post("/post", (req, res)=>{
     projectData.feelings = req.body.feelings;
     console.log(projectData.feelings)
 })
+
+app.get("/get", (req, res) => {
+    res.send(projectData)
+})

@@ -99,3 +99,4 @@ const updateUi = async()=>{
         console.log(error)
     }
 }
+updateUi()
