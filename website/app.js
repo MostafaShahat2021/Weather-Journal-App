@@ -17,7 +17,7 @@ let d = new Date();
 let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 const felingText= document.getElementById("feelings");
-
+// get dtae,temp,and content
 let date = document.getElementById("date");
 let temp = document.getElementById("temp");
 let content = document.getElementById("content");
@@ -36,10 +36,11 @@ function handlBtnClk(){
     } else {
         //start calling our 3 functions
 
-        //calling getData
+        //calling getData Function
         getData().then((data)=>{
+            // chain & call postData Function
             postData("/post", {temp:data.main.temp, date: newDate, feelings: felingText.value})
-        })
+        })// chain updateUi Function
         .then(()=> updateUi())
 
         //       ****FOR TEST ONLY****
@@ -66,7 +67,8 @@ const getData = async () => {
     const req = await fetch(apiUrl)
     try{
         const data = await req.json()
-        // const temp = data.main.temp
+        // const temp = data.main.temp **tetst**
+        // console log to check
      console.log(data.main.temp)
      return data
     } catch (error) {

@@ -21,10 +21,11 @@ app.use(express.static('website'));
 // Setup Server
 const port = 3030;
 const Server = app.listen(port,()=>{
+    // Callback to debug
     console.log("Server Runing");
     console.log(`Runing on local host: ${port}`);
 })
-
+// Post Route
 app.post("/post", (req, res)=>{
     projectData.temp = req.body.temp;
     console.log(projectData.temp)
@@ -33,7 +34,7 @@ app.post("/post", (req, res)=>{
     projectData.feelings = req.body.feelings;
     console.log(projectData.feelings)
 })
-
+// Get Route
 app.get("/get", (req, res) => {
     res.send(projectData)
 })
