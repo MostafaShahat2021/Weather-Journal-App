@@ -101,6 +101,8 @@ const updateUi = async()=>{
         const udata = await req.json()
         console.log(udata)
         date.innerHTML = udata.date
+        temp.innerHTML = udata.temp
+        content.innerHTML = udata.feelings
     } catch (error) {
         console.log(error)
     }
