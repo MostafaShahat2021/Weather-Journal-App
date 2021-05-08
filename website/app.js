@@ -18,6 +18,10 @@ let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 const felingText= document.getElementById("feelings");
 
+let date = document.getElementById("date");
+let temp = document.getElementById("temp");
+let content = document.getElementById("content");
+
 // useing click event listener on the Generate Button 
 btn.addEventListener('click', handlBtnClk);
 
@@ -36,6 +40,7 @@ function handlBtnClk(){
         getData().then((data)=>{
             postData("/post", {temp:data.main.temp, date: newDate, feelings: felingText.value})
         })
+        .then(()=> updateUi())
 
         //       ****FOR TEST ONLY****
 
@@ -95,8 +100,9 @@ const updateUi = async()=>{
     try{
         const udata = await req.json()
         console.log(udata)
+        date.innerHTML = udata.date
     } catch (error) {
         console.log(error)
     }
 }
-updateUi()
+// updateUi()
