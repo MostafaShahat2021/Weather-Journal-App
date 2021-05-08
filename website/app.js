@@ -37,19 +37,21 @@ function handlBtnClk(){
             postData("/post", {temp:data.main.temp, date: newDate, feelings: felingText.value})
         })
 
+        //       ****FOR TEST ONLY****
+
         // get user fellings & date
         //.then(()=>{
             // postData("/post", {temp:data.main.temp})
-            //****FOR TEST ONLY****
             // const felingText= document.getElementById("feelings");
             // const getUserInput = felingText.value
             // let d = new Date();
             // let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
             // console.log(getUserInput);
             // console.log(newDate);
-            //****FOR TEST ONLY****
+            
             
         // })
+        //       ****FOR TEST ONLY****
     }
 }
 //Function to get web API data using async -await promises
@@ -86,3 +88,14 @@ const postData = async (url = "", data = {})=>{// using empty value as default p
     }
 }
 // postData("/post", {temp:data.main.temp})
+
+// Function to GET Project Data 
+const updateUi = async()=>{
+    const req = await fetch("/get")
+    try{
+        const udata = await req.json()
+        console.log(udata)
+    } catch (error) {
+        console.log(error)
+    }
+}
