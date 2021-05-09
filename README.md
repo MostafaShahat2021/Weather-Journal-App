@@ -34,4 +34,4 @@
 [Node.js documentation](https://nodejs.org/en/docs/)  
 [Express](http://expressjs.com/)  
 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)  
-[Openweather API](Weather API)  
+[Openweather API](https://openweathermap.org/api)  
